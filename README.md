@@ -167,17 +167,16 @@ Each notebook reads outputs from the previous one (see headers in each notebook 
 
 | Document | Purpose |
 |---|---|
-| [M1 Objectives](docs/M1_objectives.md) | What we set out to do, KPIs, success criteria, final outcomes |
-| [Decisions Log](docs/decisions_log.md) | Every major choice we made across the 4 days and why |
-| [Reflection](docs/reflection.md) | Day-by-day learning log — retrospective input |
-| [Kaggle Insights](docs/kaggle_insights.md) | Research from the top public notebooks on this competition |
-| [Critical Review](notebooks/critical_overview.ipynb) | Honest self-evaluation of our model and process |
+| [M1 Objectives](04_docs/M1_objectives.md) | What we set out to do, KPIs, success criteria, final outcomes |
+| [Decisions Log](04_docs/decisions_log.md) | Every major choice we made across the 4 days and why |
+| [Reflection](04_docs/reflection.md) | Day-by-day learning log — retrospective input |
+| [Critical Review](02_notebooks/critical_overview.ipynb) | Honest self-evaluation of our model and process |
 
 ---
 
 ## 🔮 Future Work
 
-We identified specific improvements during our [critical review](notebooks/critical_overview.ipynb). With another week, we would prioritize them in this order:
+We identified specific improvements during our [critical review](02_notebooks/critical_overview.ipynb). With another week, we would prioritize them in this order:
 
 ### High-impact technical improvements
 
