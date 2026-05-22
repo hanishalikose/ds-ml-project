@@ -1,188 +1,207 @@
-[![Shipping files](https://github.com/neuefische/ds-ml-project-template/actions/workflows/workflow-02.yml/badge.svg?branch=main&event=workflow_dispatch)](https://github.com/neuefische/ds-ml-project-template/actions/workflows/workflow-02.yml)
+# Santander Customer Transaction Prediction
 
-# Template Repo for ML Project
-
-This template repo will give you a good starting point for your second project. Besides the files used for creating a virtual environment, you will find a simple example of how to build a simple model in a python script. This is maybe the simplest way to do it. We train a simple model in the jupyter notebook, where we select only some features and do minimal cleaning. The output is then stored in simple python scripts.
-
-The data used for this is: [coffee quality dataset](https://github.com/jldbc/coffee-quality-database).
+> A 4-day team ML project predicting which Santander customers will make a transaction in the future. Built for SPICED Academy, May 2026.
 
 ---
 
-## Set up a Kanban board on github
+## 👥 Team
 
-Go to ML-Project Template.
-
-1. Click on "Use this Template" (Blue button)
-![alt text](./images/step_1a_new.png)
-
-1. Create new repository with relevant name, the owner should be your own account. 
-![alt text](./images/step_2_new.png)
-
-1. In your newly create repo, navigate to "Projects", and then click on "Link a project" (blue button). Normally you don't have created a project yet, so you can click the arrow navigation to create project on your profile. This project can be added at the end to your repository.
-![alt text](./images/add_project_new.png)
+- **Hanish A. Köse** — Project Manager, documentation, presentation lead
+- **Roland Elsäßer** — Research support, Kaggle insights, stakeholder simulation
+- **Vasyl Kushnir** — EDA & modeling lead
 
 
-4.  You will be guided to your profiles projects and it will be shown a create project window. Choose "board" view and **not** "table" view.
- ![alt text](./images/choose_board.png)
-5. Now change the name of your board, to match that of your chosen ML project. Then click "Create project" blue button. Great you create Kanban Board
-![alt text](./images/create_project_new.png)
-
-6. Next, assign rights to all your team members by clicking on the 3 dots on the top right of the board, and then go to "Settings".
-![alt text](./images/kanban_settings.png)
-
-
-7. Next, click on "Manage Access". Add your team mates by Searching for their github handle in the search window.Change their Role from ‘Write’ to ‘Admin’. Click on the blue button “Invite” to add them. Repeat for all team members.
-![alt text](./images/team_access_new.png
-)
-
-8. Next,go back to the kanban board and at the bottom  add action items with the relevant name e.g. “load data”, "get statistics", etc.
-![alt text](./images/load_data_item.png
-)
-
-
-9. Convert added item to issue by clicking on the 3 dots on the particular added item.
-![alt text](./images/convert_to_issue.png
-)
-
-10. Then select the repo you created  for the issue to be added. (Select the project repo example “my-project-name”)
-![alt text](./images/select_repo.png
-)
-
-11. When in project repo, Go to issues, then go to milestones. 
-![alt text](./images/to_milestones.png
-)
-
-12. Click on ”New milestone”.
-
-13. Give the milestone a due date and description as per the example provided by the coaches. Add description of: 
-
-    A) What needs to be completed to be done with the milestone
-
-    B) The definition of done: what will your result look like when you have completed the milestone? (check the provided format)
-![alt text](./images/new_milestone.png)
-
-14. Now navigate to "issues".
-
-15. Assign issues to milestones 
-![alt text](./images/milestone_to_issue_new.png)
-
-16. Give it assignees (people who will work on the task). 
-![alt text](./images/milestone_to_someone.png)
-
-### Optional: Add workflows
-
-Workflows can help you keep your kanban board automatically on track. 
-
-Select the project created in the steps above.  
-
-Click on the 3 dots to the far right of the board (...)
-
-Select workflow as the first option. 
-
-Activate the ones you feel necessary to your project
-
-Go back to your project repository (fraud detection))
-
-## Set up your Environment
-
-
-
-### **`macOS`** type the following commands : 
-
-- For installing the virtual environment you can either use the [Makefile](Makefile) and run `make setup` or install it manually with the following commands:
-
-     ```BASH
-    make setup
-    ```
-    After that active your environment by following commands:
-    ```BASH
-    source .venv/bin/activate
-    ```
-Or ....
-- Install the virtual environment and the required packages by following commands:
-
-    ```BASH
-    pyenv local 3.11.3
-    python -m venv .venv
-    source .venv/bin/activate
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
-    
-### **`WindowsOS`** type the following commands :
-
-- Install the virtual environment and the required packages by following commands.
-
-   For `PowerShell` CLI :
-
-    ```PowerShell
-    pyenv local 3.11.3
-    python -m venv .venv
-    .venv\Scripts\Activate.ps1
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
-
-    For `Git-bash` CLI :
-  
-    ```BASH
-    pyenv local 3.11.3
-    python -m venv .venv
-    source .venv/Scripts/activate
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
-
-    **`Note:`**
-    If you encounter an error when trying to run `pip install --upgrade pip`, try using the following command:
-    ```Bash
-    python.exe -m pip install --upgrade pip
-    ```
-
-
-   
-## Usage
-
-In order to train the model and store test data in the data folder and the model in models run:
-
-**`Note`**: Make sure your environment is activated.
-
-```bash
-python example_files/train.py  
-```
-
-In order to test that predict works on a test set you created run:
-
-```bash
-python example_files/predict.py models/linear_regression_model.sav data/X_test.csv data/y_test.csv
-```
-
-## Limitations
-
-Development libraries are part of the production environment, normally these would be separate as the production code should be as slim as possible.
-
+**Cohort:** SPICED Academy, May 2026
 
 ---
 
-## Handling Merge Conflicts in Jupyter Notebooks
+## 🎯 What We Built
 
-When working in teams, `.ipynb` files can cause messy merge conflicts because they’re JSON-based.  
-We use **nbdime** to make this easy.
+A binary classification model that predicts the **probability** of a Santander customer making a specific transaction, given 200 anonymized numerical features.
 
-### Setup (run once)
-```bash
-nbdime config-git --enable
+**The challenge:** With only ~10% positive class, accuracy is a misleading metric. A model that always predicts "no transaction" would be 90% accurate — and useless. We built the whole pipeline around this constraint.
+
+**Our principle:** *Process discipline over chasing the score.* Four steps in order:
+
+1. **Explore** — understand the data before modeling
+2. **Prepare** — split, scale, engineer features
+3. **Model** — baseline + improved model
+4. **Review** — honestly evaluate our own work
+
+---
+
+## 📊 Results
+
+| Model | Type | ROC-AUC |
+|---|---|---|
+| Random guessing | Floor | 0.500 |
+| Logistic Regression | Linear baseline | **0.866** |
+| LightGBM | Gradient-boosted trees (main) | **0.890** |
+| Our target | — | 0.900 |
+
+**What 0.89 means in plain English:** if you pick one customer who *will* transact and one who *won't*, our model gives the right person a higher score **89% of the time**.
+
+We aimed for 0.90 and landed at 0.89. Close, but honest. The path to 0.90+ is documented in [Future Work](#-future-work) and the [Critical Review notebook](notebooks/critical_overview.ipynb).
+
+---
+
+## 📋 Project Management
+
+We followed the bootcamp's six-milestone framework, tracked via GitHub Projects.
+
+**Project Board:** [GitHub Project](https://github.com/users/hanishalikose/projects/1/views/1)
+
+### Milestones (with deliverables))
+
+| # | Milestone | Deliverable | Status |
+|---|---|---|---|
+| 1 | Form team & choose project | M1 doc + roles + repo + board | ✅ |
+| 2 | EDA completed | 01_eda.ipynb + EDA findings | ✅ |
+| 3 | Baseline model | Logistic regression at **0.866 ROC-AUC** | ✅ |
+| 4 | Slides draft | Presentation skeleton + stakeholder simulation | ✅ |
+| 5 | Model with error analysis | LightGBM at **0.890 ROC-AUC** + critical_overview.ipynb | ✅ |
+| 6 | Final deliverables + presentation | Refactored docs + README + presentation | 🔄 |
+
+### Kanban workflow
+Tasks moved through five columns: **Backlog → To Do → In Progress → Review → Done** 
+
+Five labels for categorization:
+🧠 EDA &nbsp;·&nbsp; ⚙️ Modeling &nbsp;·&nbsp; 📊 Evaluation &nbsp;·&nbsp; 💬 Presentation &nbsp;·&nbsp; 📅 Planning
+
+By project end, 16 issues were tracked, 13 linked to milestones, 3 were flagged as future work.
+
+---
+
+## 📂 Repository Structure
+
+```text
+ds-ml-project/
+├── notebooks/
+│   ├── 01_eda.ipynb                    # Exploratory data analysis
+│   ├── 02_feature_engineering.ipynb    # Split, scale, engineer features
+│   ├── 03_modeling.ipynb               # Train baseline + LightGBM
+│   └── critical_overview.ipynb         # Honest self-review of our work
+│
+├── notebooks_images/                   # Charts referenced in notebooks
+│   ├── 01_class_imbalance.png
+│   ├── 05_feature_target_correlation.png
+│   ├── 14_roc_curve_comparison.png
+│   └── ... (16 figures total)
+│
+├── docs/
+│   ├── M1_objectives.md               # Project objectives, KPIs, final outcomes
+│   ├── decisions_log.md               # Major decisions across Days 1–4 with rationale
+│   ├── reflection.md                  # Day-by-day learning log + team-level themes
+│   └── kaggle_insights.md             # Research from top Kaggle notebooks
+│
+├── data/
+│   ├── raw/
+│   │   ├── train.csv                  # Original Kaggle data, 200k × 202    [gitignored]
+│   │   └── test.csv                   # Kaggle competition test, 200k × 201 [gitignored]
+│   └── processed/
+│       ├── X_train.csv                # 160k × 206 features (LightGBM ready) [gitignored]
+│       ├── X_val.csv                  # 40k × 206 features                   [gitignored]
+│       ├── X_train_scaled.csv         # RobustScaled (Logistic Regression)   [gitignored]
+│       ├── X_val_scaled.csv           # RobustScaled validation set          [gitignored]
+│       ├── y_train.csv                # 160k stratified labels               [gitignored]
+│       └── y_val.csv                  # 40k stratified labels                [gitignored]
+│
+└── models/
+│    ├── logistic_regression.pkl        # Baseline LR model (generated by notebook 03)
+│    ├── lightgbm.pkl                   # Main LightGBM model (generated by notebook 03)
+│    └── threshold.pkl                  # Optimal F1 threshold (~0.60) for deployment
+│
+├── requirements.txt
+├── Makefile
+└── README.md
 ```
 
-### When a conflict happens
+**Note on data:** `data/raw/*.csv` files are gitignored due to GitHub's file size limits (each is ~130 MB). Download from [Kaggle](https://www.kaggle.com/c/santander-customer-transaction-prediction/data) and place in `data/raw/`.
+
+---
+
+## 🚀 Reproduce Our Work
+
+### Setup (macOS)
+
 ```bash
-nbdime mergetool
+# Clone the repo
+git clone https://github.com/hanishalikose/ds-ml-project
+cd ds-ml-project
+
+# Install macOS-specific dependency for LightGBM
+brew install libomp
+
+# Set up environment via Makefile
+make setup
+source .venv/bin/activate
 ```
 
-A web interface will open showing both notebook versions side by side.
-Choose what to keep, save and close tool, then:
-```bash
-git add your_notebook.ipynb
-git commit -m "Resolved notebook conflict"
+### Setup (Windows)
+
+PowerShell:
+```powershell
+pyenv local 3.11.3
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 ```
-That’s it — clean merges for notebooks!
+
+### Run the notebooks in order
+
+1. `notebooks/01_eda.ipynb` — exploratory analysis
+2. `notebooks/02_feature_engineering.ipynb` — data preparation
+3. `notebooks/03_modeling.ipynb` — train models, evaluate
+4. `notebooks/critical_overview.ipynb` — self-review
+
+Each notebook reads outputs from the previous one (see headers in each notebook for inputs/outputs).
+
+---
+
+## 📚 Documentation
+
+| Document | Purpose |
+|---|---|
+| [M1 Objectives](docs/M1_objectives.md) | What we set out to do, KPIs, success criteria, final outcomes |
+| [Decisions Log](docs/decisions_log.md) | Every major choice we made across the 4 days and why |
+| [Reflection](docs/reflection.md) | Day-by-day learning log — retrospective input |
+| [Kaggle Insights](docs/kaggle_insights.md) | Research from the top public notebooks on this competition |
+| [Critical Review](notebooks/critical_overview.ipynb) | Honest self-evaluation of our model and process |
+
+---
+
+## 🔮 Future Work
+
+We identified specific improvements during our [critical review](notebooks/critical_overview.ipynb). With another week, we would prioritize them in this order:
+
+### High-impact technical improvements
+
+1. **Frequency encoding.** Count how often each feature value appears across the dataset, then add those counts as new features. This is the famous trick on this competition — top Kaggle solutions used it to push scores past 0.92.
+
+2. **5-fold cross-validation.** Replace our single 80/20 split with cross-validation for more reliable performance estimates. Particularly important given how close we are to the 0.90 boundary.
+
+3. **Hyperparameter tuning with early stopping.** We used LightGBM defaults without tuning. Grid or Bayesian search would likely close the 0.01 gap to our target.
+
+### Methodological improvements
+
+4. **Handle synthetic test rows.** A known quirk of this competition's test set (~50% of rows are synthetic). We documented this in the critical review but didn't address it within the 4-day window.
+
+5. **Production refactoring.** Convert notebooks into `feature_engineering.py` / `train.py` / `predict.py` modules for one-command reproducibility, suitable for production deployment or scheduled retraining.
+
+### Expected impact
+
+- Model ROC-AUC likely **0.91–0.92** with frequency encoding + tuning
+- Cross-validation provides reliable score confidence intervals
+- Refactored pipeline enables retraining on new data with a single command
+
+---
+
+## 🎤 Presentation
+
+Final presentation delivered to the SPICED cohort on **May 26, 2026 (Day 4)**.
+
+[Link to slides](https://docs.google.com/presentation/d/1QNVnaDMV8eBVeNP8Jg0fPOft8WZxyOUnken-M6eVLmQ/edit) — internal cohort access.
+
+---
+
