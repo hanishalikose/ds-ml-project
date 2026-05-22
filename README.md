@@ -41,7 +41,7 @@ A binary classification model that predicts the **probability** of a Santander c
 
 **What 0.89 means in plain English:** if you pick one customer who *will* transact and one who *won't*, our model gives the right person a higher score **89% of the time**.
 
-We aimed for 0.90 and landed at 0.89. Close, but honest. The path to 0.90+ is documented in [Future Work](#-future-work) and the [Critical Review notebook](notebooks/critical_overview.ipynb).
+We aimed for 0.90 and landed at 0.89. Close, but honest. The path to 0.90+ is documented in [Future Work](#-future-work) and the [Critical Review notebook](02_notebooks/critical_overview.ipynb).
 
 ---
 
